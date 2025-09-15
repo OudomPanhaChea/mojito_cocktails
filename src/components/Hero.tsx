@@ -64,7 +64,7 @@ const Hero = () => {
         })
       }
     }
-  }, [isMobile]);
+  });
 
   return (
     <>
