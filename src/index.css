@@ -68,7 +68,7 @@ body {
     @apply fixed z-50 w-full;
 
     div {
-      @apply flex md:flex-row flex-col md:justify-between items-center gap-2 py-2 px-5 container max-w-6xl mx-auto;
+      @apply flex md:flex-row flex-col md:justify-between items-center gap-3 py-4 px-5 container mx-auto;
     }
 
     p {
@@ -76,7 +76,7 @@ body {
     }
 
     a {
-      @apply cursor-pointer text-nowrap text-xs;
+      @apply cursor-pointer text-nowrap md:text-base text-sm;
     }
 
     ul {
