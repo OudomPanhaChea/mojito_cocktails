@@ -1,35 +1,55 @@
-import { useGSAP } from "@gsap/react"
-import { openingHours, socials } from "../../constants"
+import { useGSAP } from "@gsap/react";
+import { openingHours, socials } from "../../constants";
 import { SplitText } from "gsap/all";
 import gsap from "gsap";
 
 const Footer = () => {
-
   useGSAP(() => {
-    const titleSplit = SplitText.create('#contact h2', { type: 'words' });
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#contact',
-        start: 'top center'
-      },
-      ease: 'power1.inOut'
-    });
+    const titleSplit = SplitText.create("#contact h2", { type: "words" });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#contact",
+          start: "top center",
+        },
+        ease: "power1.inOut",
+      })
+      .from(titleSplit.words, {
+        opacity: 0,
+        yPercent: 100,
+        stagger: 0.02,
+      })
+      .from("#contact h3, #contact p", {
+        opacity: 0,
+        yPercent: 100,
+        stagger: 0.02,
+      });
 
-    timeline.from(titleSplit.words, {
-      opacity: 0, yPercent: 100, stagger: 0.02
-    }).from('#contact h3, #contact p', {
-      opacity: 0, yPercent: 100, stagger: 0.02
-    }).to('#f-right-leaf', {
-      y: '-50', duration: 1, ease: 'power1.inOut'
-    }).to('#f-left-leaf', {
-      y: '-50', duration: 1, ease: 'power1.inOut'
-    }, '<');
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#contact",
+          start: "top center",
+          end: "bottom 70%",
+          scrub: true,
+        },
+      })
+      .fromTo("#f-right-leaf", { y: -50, x: 10 }, { y: 50 })
+      .fromTo("#f-left-leaf", { y: 50, x: -50 }, { y: 0, x: 0 }, "<");
   });
 
   return (
-    <footer id='contact' className="h-[100vh] w-full bg-black">
-      <img src="/images/footer-right-leaf.png" alt="leaf-right" id="f-right-leaf" />
-      <img src="/images/footer-left-leaf.png" alt="leaf-left" id="f-left-leaf" />
+    <footer id="contact" className="min-h-[100vh] w-full bg-black">
+      <img
+        src="/images/footer-right-leaf.png"
+        alt="leaf-right"
+        id="f-right-leaf"
+      />
+      <img
+        src="/images/footer-left-leaf.png"
+        alt="leaf-left"
+        id="f-left-leaf"
+      />
 
       <div className="content">
         <h2>Where to Find Us</h2>
@@ -58,7 +78,13 @@ const Footer = () => {
           <h3>Socials</h3>
           <div className="flex-center gap-5">
             {socials.map((social) => (
-              <a href={social.url} key={social.name} target="_blank" rel="noopener noreferrer" aria-label={social.name}>
+              <a
+                href={social.url}
+                key={social.name}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.name}
+              >
                 <img src={social.icon} alt="icon" />
               </a>
             ))}
@@ -66,7 +92,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
