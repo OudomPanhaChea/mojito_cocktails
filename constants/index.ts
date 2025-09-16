@@ -120,7 +120,7 @@ const socials = [
  {
 	name: "Instagram",
 	icon: "/images/insta.png",
-	url: "#",
+	url: "https://www.instagram.com/oudompanha_/",
  },
  {
 	name: "X (Twitter)",
@@ -130,11 +130,11 @@ const socials = [
  {
 	name: "Facebook",
 	icon: "/images/fb.png",
-	url: "#",
+	url: "https://www.facebook.com/oudompanha.2108/",
  },
 ];
 
-const sliderLists = [
+const allCocktails = [
  {
 	id: 1,
 	name: "Classic Mojito",
@@ -179,5 +179,5 @@ export {
  openingHours,
  storeInfo,
  socials,
- sliderLists,
+ allCocktails,
 };

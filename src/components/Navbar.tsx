@@ -17,9 +17,10 @@ const Navbar = () => {
       duration: 1,
       ease: 'power1.inOut',
     });
-  }, []);
+  });
+
   return (
-    <nav>
+    <nav className=' backdrop-blur-[2px]'>
       <div>
         <a href="#home" className="flex items-center gap-2">
           <img src="/images/logo.png" alt="logo" />
